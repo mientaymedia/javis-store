@@ -1,0 +1,413 @@
+From 37408b888f96f52faeb2eef7ab5a5e183ad22010 Mon Sep 17 00:00:00 2001
+From: mientaymedia <189539473+mientaymedia@users.noreply.github.com>
+Date: Fri, 20 Nov 2026 16:17:29 +0700
+Subject: [PATCH] Add natural Messenger replies pack
+
+---
+ dist/javis-messenger-replies-1.0.0.zip        | Bin 0 -> 3008 bytes
+ index.json                                    |  30 +++++
+ packs/javis.messenger-replies/javis-pack.yaml |  25 ++++
+ .../plugins/messenger-replies/plugin.py       | 124 ++++++++++++++++++
+ .../plugins/messenger-replies/plugin.yaml     |   9 ++
+ .../test_messenger_replies.py                 | 104 +++++++++++++++
+ 6 files changed, 292 insertions(+)
+ create mode 100644 dist/javis-messenger-replies-1.0.0.zip
+ create mode 100644 packs/javis.messenger-replies/javis-pack.yaml
+ create mode 100644 packs/javis.messenger-replies/plugins/messenger-replies/plugin.py
+ create mode 100644 packs/javis.messenger-replies/plugins/messenger-replies/plugin.yaml
+ create mode 100644 tests/javis.messenger-replies/test_messenger_replies.py
+
+diff --git a/dist/javis-messenger-replies-1.0.0.zip b/dist/javis-messenger-replies-1.0.0.zip
+new file mode 100644
+index 0000000000000000000000000000000000000000..706d89c0522feadf1b19d922e25e3f3ef37d8ad3
+GIT binary patch
+literal 3008
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/index.json b/index.json
+index 7672c0c..4bb49d0 100644
+--- a/index.json
++++ b/index.json
+@@ -8,6 +8,36 @@
+   },
+   "_doc": "Danh mục Javis đọc thẳng. Thêm một mục ở đây là mọi máy đang chạy Javis thấy ngay, không cần bản cập nhật. Cách gửi gói: xem CONTRIBUTING.md. Trường _doc và mọi khoá lạ khác đều bị Javis bỏ qua khi đọc.",
+   "packs": [
++    {
++      "id": "javis.messenger-replies",
++      "kind": "plugin",
++      "name": {
++        "vi": "Messenger trả lời tự nhiên",
++        "en": "Natural Messenger replies"
++      },
++      "description": {
++        "vi": "Cho chatbot Messenger thả cảm xúc phù hợp và gắn câu trả lời vào đúng tin khách vừa nhắn. Chỉ áp dụng cho inbox riêng Facebook, không áp dụng cho bình luận hay Instagram. Dành cho Javis 0.611.x.",
++        "en": "Lets Messenger chatbots react appropriately and attach each answer to the exact customer message. Applies only to private Facebook Page inboxes, not comments or Instagram. For Javis 0.611.x."
++      },
++      "version": "1.0.0",
++      "author": {
++        "name": "Javis"
++      },
++      "category": "ban-hang",
++      "category_label": {
++        "vi": "Bán hàng",
++        "en": "Sales"
++      },
++      "tier": "code",
++      "verified": true,
++      "updated": "2026-11-20",
++      "homepage": "https://github.com/blogminhquy/javis-store/tree/main/packs/javis.messenger-replies",
++      "download": {
++        "url": "dist/javis-messenger-replies-1.0.0.zip",
++        "sha256": "668c55efcae0ed7b2a73bcf245eab7f922d7670065df2c8b5cf2ddb3f2665234",
++        "size": 3008
++      }
++    },
+     {
+       "id": "javis.pricing",
+       "kind": "tool",
+diff --git a/packs/javis.messenger-replies/javis-pack.yaml b/packs/javis.messenger-replies/javis-pack.yaml
+new file mode 100644
+index 0000000..f75e3ce
+--- /dev/null
++++ b/packs/javis.messenger-replies/javis-pack.yaml
+@@ -0,0 +1,25 @@
++format: javis-pack
++spec: 1
++
++id: javis.messenger-replies
++version: 1.0.0
++name:
++  vi: Messenger trả lời tự nhiên
++  en: Natural Messenger replies
++description:
++  vi: Cho chatbot Messenger thả cảm xúc phù hợp và gắn câu trả lời vào đúng tin khách vừa nhắn. Chỉ áp dụng cho inbox riêng Facebook, không áp dụng cho bình luận hay Instagram.
++  en: Lets Messenger chatbots react appropriately and attach each answer to the exact customer message. Applies only to private Facebook Page inboxes, not comments or Instagram.
++
++author:
++  name: Javis
++license: MIT
++homepage: https://github.com/blogminhquy/javis-store
++
++# This plugin patches private Messenger turns in Javis 0.611.x. Keep the upper bound so a
++# future core transport change cannot leave a stale runtime patch enabled silently.
++compat:
++  app: ">=0.611.0,<0.612.0"
++
++provides:
++  plugins:
++    - plugins/messenger-replies
+diff --git a/packs/javis.messenger-replies/plugins/messenger-replies/plugin.py b/packs/javis.messenger-replies/plugins/messenger-replies/plugin.py
+new file mode 100644
+index 0000000..fa33d58
+--- /dev/null
++++ b/packs/javis.messenger-replies/plugins/messenger-replies/plugin.py
+@@ -0,0 +1,124 @@
++"""Add reactions and native message replies to private Facebook Page inbox turns.
++
++This is intentionally a narrow compatibility patch for Javis 0.611.x. It does not add a
++new Facebook client or store credentials. It reuses the connected Page transport and only
++changes a live private Messenger turn in two ways:
++
++1. Messenger becomes eligible for the existing `[CAM_XUC:<name>]` agent contract. The chosen
++   emoji is sent with Meta's REACT sender action against the inbound message id.
++2. The first text chunk carries `reply_to.mid`, so Messenger renders it as a reply to the
++   exact customer message instead of an unanchored bubble.
++
++Comments and Instagram turns are excluded. The patch is task-local through a ContextVar,
++so simultaneous conversations cannot leak message ids into each other. Installing a code
++pack leaves it disabled until the owner reviews and enables it in Javis.
++"""
++from __future__ import annotations
++
++from contextvars import ContextVar
++from typing import Any, Optional
++
++_TURN = ContextVar("javis_messenger_reply_turn", default=None)
++_PATCHED = False
++
++
++def _supported(meta: Optional[dict]) -> bool:
++    turn = meta or {}
++    return bool(turn.get("message_id")) and not turn.get("comment") and not turn.get("instagram")
++
++
++class _ReactionChannels(tuple):
++    """Tuple-compatible channel list whose Messenger membership is scoped to a live private turn."""
++
++    def __new__(cls, values):
++        items = tuple(values or ())
++        if not tuple.__contains__(items, "messenger"):
++            items += ("messenger",)
++        return super().__new__(cls, items)
++
++    def __contains__(self, item):
++        if item == "messenger":
++            state = _TURN.get()
++            return bool(state and _supported(state.get("meta")))
++        return tuple.__contains__(self, item)
++
++
++def _wrap_answer(bot, bot_reaction) -> None:
++    if getattr(bot, "_store_messenger_replies_answer", False) or not callable(getattr(bot, "answer_fn", None)):
++        return
++    original = bot.answer_fn
++
++    async def answer(text, meta=None, progress=None):
++        result = await original(text, meta, progress)
++        reaction = result.get("reaction") if isinstance(result, dict) else None
++        emoji = bot_reaction.emoji_of(reaction)
++        if emoji and _supported(meta) and getattr(bot, "_client", None) is not None:
++            payload = {
++                "recipient": {"id": str((meta or {}).get("chat_id") or "")},
++                "sender_action": "REACT",
++                "payload": emoji,
++                "reply_to": {"mid": str((meta or {}).get("message_id") or "")},
++            }
++            try:
++                await bot._post_json(bot._client, f"{bot.page_id}/messages", payload)
++            except Exception:
++                # A failed decorative reaction must never cost the customer the actual answer.
++                pass
++        return result
++
++    bot.answer_fn = answer
++    bot._store_messenger_replies_answer = True
++
++
++def _install() -> None:
++    global _PATCHED
++    if _PATCHED:
++        return
++
++    import bot_reaction
++    import messenger_bot
++
++    bot_reaction.CHANNELS = _ReactionChannels(bot_reaction.CHANNELS)
++    bot_class = messenger_bot.MessengerBot
++
++    original_init = bot_class.__init__
++    original_handle_turn = bot_class._handle_turn
++    original_post_json = bot_class._post_json
++
++    def init(self, *args, **kwargs):
++        original_init(self, *args, **kwargs)
++        _wrap_answer(self, bot_reaction)
++
++    async def handle_turn(self, client, chat, text, meta=None):
++        state = {"meta": dict(meta or {}), "reply_sent": False}
++        token = _TURN.set(state)
++        try:
++            return await original_handle_turn(self, client, chat, text, meta)
++        finally:
++            _TURN.reset(token)
++
++    async def post_json(self, client, path, payload):
++        state = _TURN.get()
++        body = payload
++        if (state and _supported(state.get("meta")) and not state.get("reply_sent")
++                and path == f"{self.page_id}/messages" and isinstance(payload, dict)
++                and payload.get("message") and not payload.get("reply_to")):
++            body = dict(payload)
++            body["reply_to"] = {"mid": str(state["meta"]["message_id"])}
++            state["reply_sent"] = True
++        return await original_post_json(self, client, path, body)
++
++    bot_class.__init__ = init
++    bot_class._handle_turn = handle_turn
++    bot_class._post_json = post_json
++    bot_class._store_messenger_replies_patch = True
++
++    # A plugin can be enabled after bots were constructed. Cover those instances too.
++    for bot in (messenger_bot.registered() or {}).values():
++        _wrap_answer(bot, bot_reaction)
++
++    _PATCHED = True
++
++
++def register(ctx: Any) -> None:
++    _install()
+diff --git a/packs/javis.messenger-replies/plugins/messenger-replies/plugin.yaml b/packs/javis.messenger-replies/plugins/messenger-replies/plugin.yaml
+new file mode 100644
+index 0000000..816c090
+--- /dev/null
++++ b/packs/javis.messenger-replies/plugins/messenger-replies/plugin.yaml
+@@ -0,0 +1,9 @@
++name: Messenger trả lời tự nhiên
++slug: messenger-replies
++version: 1.0.0
++description: Chatbot Messenger tự chọn reaction phù hợp và trả lời trực tiếp vào đúng tin khách vừa nhắn. Chỉ chạy trong inbox riêng Facebook.
++author: Javis
++enabled: true
++min_mode: full
++tools: []
++hooks: []
+diff --git a/tests/javis.messenger-replies/test_messenger_replies.py b/tests/javis.messenger-replies/test_messenger_replies.py
+new file mode 100644
+index 0000000..4b9e0dd
+--- /dev/null
++++ b/tests/javis.messenger-replies/test_messenger_replies.py
+@@ -0,0 +1,104 @@
++"""Store pack: private Messenger reactions and reply_to, with no network.
++
++Run with:
++    JAVIS_OS_DIR=../javis-os python tests/javis.messenger-replies/test_messenger_replies.py
++"""
++from __future__ import annotations
++
++import asyncio
++import importlib.util
++import os
++import sys
++from pathlib import Path
++
++STORE = Path(__file__).resolve().parents[2]
++OS_ROOT = Path(os.environ.get("JAVIS_OS_DIR") or "../javis-os").resolve()
++SERVER = OS_ROOT / "server"
++sys.path.insert(0, str(SERVER))
++
++import bot_reaction  # noqa: E402
++import messenger_bot  # noqa: E402
++
++PLUGIN = STORE / "packs" / "javis.messenger-replies" / "plugins" / "messenger-replies" / "plugin.py"
++spec = importlib.util.spec_from_file_location("store_messenger_replies", PLUGIN)
++module = importlib.util.module_from_spec(spec)
++assert spec and spec.loader
++spec.loader.exec_module(module)
++module.register(object())
++
++fails = []
++
++
++def check(name, condition, detail=""):
++    print(("ok   " if condition else "FAIL ") + name + (f" [{detail}]" if detail and not condition else ""))
++    if not condition:
++        fails.append(name)
++
++
++PAGE = "123456789"
++TOKEN = "EAA-test"
++
++
++async def turn(meta, answer):
++    calls = []
++
++    class Response:
++        status_code = 200
++
++        @staticmethod
++        def json():
++            return {"message_id": "out-1"}
++
++    class Client:
++        async def post(self, url, json=None, params=None):
++            calls.append((url.rsplit("/", 2)[-2] + "/" + url.rsplit("/", 1)[-1], dict(json or {})))
++            return Response()
++
++    async def answer_fn(text, received_meta, progress):
++        return dict(answer)
++
++    bot = messenger_bot.MessengerBot({"page_id": PAGE, "access_token": TOKEN, "app_secret": "secret"}, "",
++                                     answer_fn, giau_trang_thai=True)
++
++    client = Client()
++    bot._client = client
++    await bot._handle_turn(client, str(meta.get("chat_id") or "customer-1"), "Xin chào", meta)
++    return calls
++
++
++private = asyncio.run(turn(
++    {"chat_id": "customer-1", "message_id": "in-1"},
++    {"text": "Dạ em nghe ạ", "reaction": "heart"},
++))
++check("private reply is anchored to the inbound message",
++      any(p.get("message") and p.get("reply_to") == {"mid": "in-1"} for _, p in private), private)
++check("private reaction targets the inbound message",
++      any(p.get("sender_action") == "REACT" and p.get("payload") == "❤️"
++          and p.get("reply_to") == {"mid": "in-1"} for _, p in private), private)
++
++reaction_only = asyncio.run(turn(
++    {"chat_id": "customer-2", "message_id": "in-2"},
++    {"text": "", "files": [], "im_lang": True, "reaction": "like"},
++))
++check("reaction-only turn sends a reaction without a text bubble",
++      any(p.get("sender_action") == "REACT" and p.get("payload") == "👍" for _, p in reaction_only)
++      and not any(p.get("message") for _, p in reaction_only), reaction_only)
++
++comment = asyncio.run(turn(
++    {"chat_id": "cmt:root-1", "message_id": "comment-1", "comment": True},
++    {"text": "Em đã nhận bình luận", "reaction": "heart"},
++))
++check("public comments get neither a reaction nor reply_to",
++      not any(p.get("sender_action") == "REACT" or p.get("reply_to") for _, p in comment), comment)
++
++instagram = asyncio.run(turn(
++    {"chat_id": "ig:user-1", "message_id": "ig-1", "instagram": True},
++    {"text": "Hello", "reaction": "heart"},
++))
++check("Instagram gets neither a reaction nor reply_to",
++      not any(p.get("sender_action") == "REACT" or p.get("reply_to") for _, p in instagram), instagram)
++check("Zalo reaction support remains present", "zalo_personal" in bot_reaction.CHANNELS)
++
++if fails:
++    raise SystemExit(f"FAIL: {len(fails)}")
++print("OK - javis.messenger-replies")
+-- 
+2.47.3
+
